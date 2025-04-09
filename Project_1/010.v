@@ -26,4 +26,9 @@ always @ (posedge clk) begin
     if (reset == 1) scurr <= Init; else scurr <= snext;
 end
 
+initial begin
+    $dumpfile("010detector.vcd");
+    $dumpvars(0, detector_010);
+end
+
 endmodule
