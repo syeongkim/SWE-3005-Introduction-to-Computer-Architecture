@@ -1,0 +1,6 @@
+# commands for verilog compile
+iverilog -o 010detector.out 010.v 010_tb.v
+vvp 010detector.out
+
+# commands for gtkwave
+gtkwave 010detector.vcd
