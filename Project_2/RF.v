@@ -12,6 +12,22 @@ module RF(
     output reg [15:0] data2
     );
     
-    // FILLME
+    reg [15:0] regfile [3:0];
+
+    always @(*) begin
+        data1 = regfile[addr1];
+        data2 = regfile[addr2];
+    end
+
+    always @(posedge clk) begin
+        if (reset) begin
+            regfile[0] <= 0;
+            regfile[1] <= 0;
+            regfile[2] <= 0;
+            regfile[3] <= 0;
+        end else if (write) begin
+            regfile[addr3] <= data3;
+        end
+    end
     
 endmodule
